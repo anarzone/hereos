@@ -15,12 +15,12 @@
         .logo_link{
             color: whitesmoke;
             font-size: 40px;
-            text-underline: none;
+            text-decoration: none;
         }
 
-        .logo_link:hover{
+        a.logo_link:hover{
             color: whitesmoke;
-            text-underline: none;
+            text-decoration: none !important;
         }
     </style>
 </head>

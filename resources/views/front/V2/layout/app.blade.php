@@ -13,8 +13,8 @@
                                     <div class="logo_position_wrapper">
                                         <div class="logo_position_table">
                                             <!-- begin logo -->
-                                            <a class="logo_link" href="index.html">
-                                               Hereos
+                                            <a class="logo_link" href="{{route('home')}}" style="text-decoration: none">
+                                                Dastana Döndü...
                                             </a>
                                             <!-- end logo -->
                                             <div class="jl_header_link_subscribe">
