@@ -1,6 +1,6 @@
 @extends('front.V2.layout.app')
 
-@section('title', 'Hereos')
+@section('title', 'Ana səhifə')
 
 @section('content')
     <div class="jl_post_loop_wrapper jl_grid_4col_home">
