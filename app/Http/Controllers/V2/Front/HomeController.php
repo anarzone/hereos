@@ -6,6 +6,7 @@ use App\Models\V2\Categories\Category;
 use App\Helpers\ActionHelper;
 use App\Http\Controllers\Controller;
 use App\Models\V2\Posts\Post;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -20,12 +21,7 @@ class HomeController extends Controller
             ->take(8);
 
         $data = [
-            'latestPosts' => Post::latest()->get(),
-            'latestThreePosts' => Post::latest()->take(3)->get(),
-            'bannerPosts' => Post::where('banner', true)->get(),
-            'editorPosts' => Post::where('editor', true)->get(),
-            'topWeek' => $this->topWeek($topPosts),
-            'widgetPosts' => Post::where('category_id', Category::INTERESTING_ID)->latest()->take(4)->get(),
+            'latestPosts' => Post::latest()->paginate(10),
         ];
 
         return view('front.V2.posts.index', $data);
@@ -51,5 +47,24 @@ class HomeController extends Controller
             'latestThreePosts' => Post::latest()->take(3)->get(),
             'widgetPosts' => Post::where('category_id', Category::INTERESTING_ID)->latest()->take(4)->get(),
         ]);
+    }
+
+    public function search(Request $request){
+        $request->validate([
+            'term' => 'string'
+        ]);
+
+        $data = [
+            'latestPosts' => Post::with([
+                                    'translations' => function($query) use ($request){
+                                        return $query->where('title', 'LIKE', '%'.$request->term.'%')
+                                               ->orWhere('body', 'LIKE', '%'.$request->term.'%');
+                                    }
+                                ])
+                                ->latest()
+                                ->paginate(10),
+        ];
+
+        return view('front.V2.posts.index', $data);
     }
 }

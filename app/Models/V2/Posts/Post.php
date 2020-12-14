@@ -75,10 +75,6 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function editorPost(){
-        return $this->hasOne(EditorPost::class, 'post_id');
-    }
-
     public function seo(){
         return $this->hasOne(Seo::class, 'client_id');
     }

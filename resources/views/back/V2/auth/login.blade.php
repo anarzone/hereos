@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admindek | Admin Template</title>
+    <title>Hereos | Login</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="{{asset('V2/front/img/favicon-seom.svg')}}" type="image/x-icon">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
 
@@ -106,15 +104,6 @@
                                     <h3 class="text-center txt-primary">Sign In</h3>
                                 </div>
                             </div>
-                            <div class="row m-b-20">
-                                <div class="col-md-6">
-                                    <button class="btn btn-facebook m-b-20 btn-block"><i class="icofont icofont-social-facebook"></i>facebook</button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button class="btn btn-twitter m-b-20 btn-block"><i class="icofont icofont-social-twitter"></i>twitter</button>
-                                </div>
-                            </div>
-                            <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                             <div class="form-group form-primary">
                                 <input type="text" name="email" class="form-control" required="">
                                 <span class="form-bar"></span>
