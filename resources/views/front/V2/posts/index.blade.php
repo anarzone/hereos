@@ -38,18 +38,18 @@
                             @endforeach
                         </div>
                     </div>
-                    {{ $latestPosts->links() }}
-                    <nav class="jellywp_pagination">
-                        <ul class="page-numbers">
-                            <li><span aria-current="page" class="page-numbers current">1</span></li>
-                            <li><a class="page-numbers" href="#">2</a></li>
-                            <li><a class="page-numbers" href="#">3</a></li>
-                            <li><span class="page-numbers dots">&hellip;</span></li>
-                            <li><a class="page-numbers" href="#">6</a></li>
-                            <li><a class="next page-numbers" href="#"><i class="fa fa-long-arrow-right"></i></a>
-                            </li>
-                        </ul>
-                    </nav>
+{{--                    {{ $latestPosts->links() }}--}}
+{{--                    <nav class="jellywp_pagination">--}}
+{{--                        <ul class="page-numbers">--}}
+{{--                            <li><span aria-current="page" class="page-numbers current">1</span></li>--}}
+{{--                            <li><a class="page-numbers" href="#">2</a></li>--}}
+{{--                            <li><a class="page-numbers" href="#">3</a></li>--}}
+{{--                            <li><span class="page-numbers dots">&hellip;</span></li>--}}
+{{--                            <li><a class="page-numbers" href="#">6</a></li>--}}
+{{--                            <li><a class="next page-numbers" href="#"><i class="fa fa-long-arrow-right"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </nav>--}}
                 </div>
             </div>
 
