@@ -1,1 +1,1 @@
-Memorial for our hereos
+In memory of hereos
