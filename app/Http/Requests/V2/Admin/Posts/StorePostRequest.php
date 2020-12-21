@@ -32,13 +32,8 @@ class StorePostRequest extends FormRequest
             'meta_description' => 'required|string|between:2,155',
             'meta_keywords' => 'required|string',
             'slug' => 'required|string|unique:posts,id,'.$this->request->get('post_id'),
-            'cover' => "$required|image|mimes:jpg,jpeg,png",
             'thumbnail_image' => "$required|image|mimes:jpg,jpeg,png",
-            'carousel_banner_image' => "$required|image|mimes:jpg,jpeg,png",
-            'carousel_small_image' => "$required|image|mimes:jpg,jpeg,png",
             'status' => 'required',
-            'format' => 'required',
-            'category_id' => 'required|integer',
         ];
     }
 

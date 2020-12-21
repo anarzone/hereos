@@ -66,10 +66,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request){
         $data = $request->except([
             '_token',
-            'cover',
             'thumbnail_image',
-            'carousel_banner_image',
-            'carousel_small_image',
             'title',
             'body',
             'meta_title',
@@ -78,21 +75,11 @@ class PostController extends Controller
         ]);
         $data['user_id'] = auth()->user()->id;
 
-        $cover = $request->file('cover');
         $thumbnail = $request->file('thumbnail_image');
-        $carousel_banner = $request->file('carousel_banner_image');
-        $carousel_small = $request->file('carousel_small_image');
 
-
-        $cover = isset($cover) ? $this->uploadImage($cover, Post::COVER_PATH) : null;
         $thumbnail = isset($thumbnail) ? $this->uploadImage($thumbnail, Post::THUMBNAIL_PATH) : null;
-        $carousel_banner = isset($carousel_banner) ? $this->uploadImage($carousel_banner, Post::CAROUSEL_BANNER_PATH) : null;
-        $carousel_small = isset($carousel_small) ? $this->uploadImage($carousel_small, Post::CAROUSEL_SMALL_PATH) : null;
 
-        if($cover) $data['cover'] = $cover;
         if($thumbnail) $data['thumbnail_image'] = $thumbnail;
-        if($carousel_banner) $data['carousel_banner_image'] = $carousel_banner;
-        if($carousel_small) $data['carousel_small_image'] = $carousel_small;
 
         $post = Post::updateOrCreate(['id' => $request->get('post_id')], $data);
 

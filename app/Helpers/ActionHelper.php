@@ -11,7 +11,7 @@ trait ActionHelper{
     private function uploadImage($img, $directory){
         $time = Carbon::now();
         $extension = $img->getClientOriginalExtension();
-        $directory = $directory . date_format($time, 'Y') . '/' . date_format($time, 'm') . '/' . date_format($time, 'd');
+        $directory = $directory .'/'. date_format($time, 'Y') . '/' . date_format($time, 'm') . '/' . date_format($time, 'd');
         $filename = Str::random(5).date_format($time,'d').rand(1,9).date_format($time,'h').".".$extension;
 
         $store_Image = $img->storeAs($directory, $filename, 'public');

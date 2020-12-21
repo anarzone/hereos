@@ -59,7 +59,7 @@
                                                                value="{{ isset($post) ? $post->translation->title : old('title') }}"
                                                                placeholder="{{__('form.title')}}">
                                                         @error('title')
-                                                            <span class="messages">
+                                                        <span class="messages">
                                                                 <p class="text-danger error"> {{ $message }} </p>
                                                             </span>
                                                         @enderror
@@ -70,9 +70,9 @@
                                                                value="{{\App\Models\V2\Posts\Post::DRAFT}}">
                                                         <input name="status" type="checkbox" class="js-single" checked
                                                                value="{{\App\Models\V2\Posts\Post::PUBLISHED}}"
-                                                               {{ isset($post) && $post->status == \App\Models\V2\Posts\Post::PUBLISHED ? 'checked' : '' }} />
+                                                                {{ isset($post) && $post->status == \App\Models\V2\Posts\Post::PUBLISHED ? 'checked' : '' }} />
                                                         @error('status')
-                                                            <span class="messages">
+                                                        <span class="messages">
                                                                 <p class="text-danger error"> {{ $message }} </p>
                                                             </span>
                                                         @enderror
@@ -84,23 +84,7 @@
                                                                value="{{ isset($post) ? $post->slug : old('slug') }}"
                                                                placeholder="slug">
                                                         @error('slug')
-                                                            <span class="messages">
-                                                                <p class="text-danger error"> {{ $message }} </p>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <select name="format" id="" class="form-control fill">
-                                                            <option value="" disabled selected>Məqalənin tipini seçin...</option>
-                                                            @foreach($post_formats as $format => $name)
-                                                                <option value="{{$format}}"
-                                                                    {{ isset($post) && $post->format == $format?
-                                                                        'selected' : '' }}
-                                                                > {{ $name }} </option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('format')
-                                                            <span class="messages">
+                                                        <span class="messages">
                                                                 <p class="text-danger error"> {{ $message }} </p>
                                                             </span>
                                                         @enderror
@@ -111,7 +95,7 @@
                                                         <textarea name="body" rows="16" cols="5" class="form-control"
                                                                   placeholder="" id="body">{{ isset($post) ? $post->translation->body : old('body') }}</textarea>
                                                         @error('body')
-                                                            <span class="messages">
+                                                        <span class="messages">
                                                                 <p class="text-danger error"> {{ $message }} </p>
                                                             </span>
                                                         @enderror
@@ -121,24 +105,6 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6 mobile-inputs">
-                                                <h4 class="sub-title">{{__('nav.category')}}</h4>
-                                                <div class="form-group">
-                                                    <select name="category_id" class="form-control fill">
-                                                        @foreach($categories as $category)
-                                                            <option value="{{$category->id}}"
-                                                                {{ isset($post) && $post->category_id == $category->id ?
-                                                                    'selected' : '' }}
-                                                            >
-                                                                {{ $category->translation->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                    @error('category_id')
-                                                        <span class="messages">
-                                                            <p class="text-danger error"> {{ $message }} </p>
-                                                        </span>
-                                                    @enderror
-                                                </div>
                                                 <h4 class="title">SEO</h4>
                                                 <hr>
                                                 <div class="form-group">
@@ -146,7 +112,7 @@
                                                     <input name="meta_title" type="text" class="form-control form-control-primary"
                                                            value="{{ isset($post) ? $post->seo->meta_title : old('meta_title') }}" placeholder="">
                                                     @error('meta_title')
-                                                        <span class="messages">
+                                                    <span class="messages">
                                                             <p class="text-danger error"> {{ $message }} </p>
                                                         </span>
                                                     @enderror
@@ -156,7 +122,7 @@
                                                     <input name="meta_description" type="text" class="form-control form-control-primary"
                                                            value="{{ isset($post) ? $post->seo->meta_description : old('meta_description') }}" placeholder="">
                                                     @error('meta_description')
-                                                        <span class="messages">
+                                                    <span class="messages">
                                                             <p class="text-danger error"> {{ $message }} </p>
                                                         </span>
                                                     @enderror
@@ -166,26 +132,13 @@
                                                     <input name="meta_keywords" type="text" placeholder="" size="1"
                                                            value="{{ isset($post) ? $post->seo->meta_keywords : old('meta_keywords') }}" data-role="tagsinput">
                                                     @error('meta_keywords')
-                                                        <span class="messages">
+                                                    <span class="messages">
                                                             <p class="text-danger error"> {{ $message }} </p>
                                                         </span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="col-sm-6 mobile-inputs">
-                                                <h4 class="sub-title">{{__('form.images')}}</h4>
-                                                <div class="form-group">
-                                                    <label for="">{{__('form.coverImage')}}</label>
-                                                    @if(isset($post))
-                                                        <img src="{{asset('storage/'.$post->cover)}}" alt="" width="100%">
-                                                    @endif
-                                                    <input name="cover" type="file" class="form-control form-control-success" placeholder="">
-                                                    @error('cover')
-                                                        <span class="messages">
-                                                            <p class="text-danger error"> {{ $message }} </p>
-                                                        </span>
-                                                    @enderror
-                                                </div>
                                                 <div class="form-group">
                                                     <label for="">{{__('form.thumbnailImage')}}</label>
                                                     @if(isset($post)  && $post->thumbnail_image)
@@ -193,36 +146,11 @@
                                                     @endif
                                                     <input name="thumbnail_image" type="file" class="form-control form-control-warning" placeholder="">
                                                     @error('thumbnail_image')
-                                                        <span class="messages">
+                                                    <span class="messages">
                                                             <p class="text-danger error"> {{ $message }} </p>
                                                         </span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="">{{__('form.carouselBannerImage')}}</label>
-                                                    @if(isset($post)  && $post->carousel_banner_image)
-                                                        <img src="{{asset('storage/'.$post->carousel_banner_image)}}" alt="" width="100%">
-                                                    @endif
-                                                    <input name="carousel_banner_image" type="file" class="form-control form-control-warning" placeholder="">
-                                                    @error('carousel_banner_image')
-                                                        <span class="messages">
-                                                            <p class="text-danger error"> {{ $message }} </p>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="">{{__('form.carouselSmallImage')}}</label>
-                                                    @if(isset($post)  && $post->carousel_small_image)
-                                                        <img src="{{asset('storage/'.$post->carousel_small_image)}}" alt="" width="100%">
-                                                    @endif
-                                                    <input name="carousel_small_image" type="file" class="form-control form-control-warning" placeholder="">
-                                                    @error('carousel_small_image')
-                                                        <span class="messages">
-                                                            <p class="text-danger error"> {{ $message }} </p>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-
                                             </div>
                                         </div>
                                         <hr>
@@ -259,19 +187,44 @@
 
 @section('js')
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
-
     <script>
-        $('textarea#body').tinymce({
-            height: 500,
-            menubar: false,
+        var editor_config = {
+            path_absolute : "/",
+            selector: 'textarea#body',
+            relative_urls: false,
             plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table directionality",
+                "emoticons template paste textpattern"
             ],
-            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
-        });
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+            file_picker_callback : function(callback, value, meta) {
+                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+                if (meta.filetype == 'image') {
+                    cmsURL = cmsURL + "&type=Images";
+                } else {
+                    cmsURL = cmsURL + "&type=Files";
+                }
+
+                tinyMCE.activeEditor.windowManager.openUrl({
+                    url : cmsURL,
+                    title : 'Filemanager',
+                    width : x * 0.8,
+                    height : y * 0.8,
+                    resizable : "yes",
+                    close_previous : "no",
+                    onMessage: (api, message) => {
+                        callback(message.content);
+                    }
+                });
+            }
+        };
+
+        tinymce.init(editor_config);
 
         // trigger switch if publish status is 0
         $(document).ready(function () {
@@ -279,5 +232,9 @@
                 $('.switchery').trigger('click')
             }
         })
+
+        $("[name='title']").keyup(function(){
+            $("[name='slug']").val(slugify($(this).val()));
+        });
     </script>
 @endsection
