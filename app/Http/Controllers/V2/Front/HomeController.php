@@ -35,7 +35,6 @@ class HomeController extends Controller
             'previousPost' => Post::where('id', '<', $slug->id)->first(),
             'nextPost' => Post::where('id', '>', $slug->id)->first(),
             'relatedPosts' => $this->relatedArticles($slug),
-            'widgetPosts' => Post::where('category_id', Category::INTERESTING_ID)->latest()->take(4)->get(),
         ];
 
         return view('front.V2.posts.single', $data);

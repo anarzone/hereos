@@ -40,8 +40,6 @@
                                             <th>#</th>
                                             <th>{{__('form.title')}}</th>
                                             <th>{{__('form.slug')}}</th>
-                                            <th>{{__('nav.category')}}</th>
-                                            <th>{{__('form.author')}}</th>
                                             <th>{{__('form.status')}}</th>
                                             <th>{{__('nav.actions')}}</th>
                                         </tr>
@@ -52,8 +50,6 @@
                                                 <th scope="row">{{$post->id}}</th>
                                                 <td>{{$post->translation->title}}</td>
                                                 <td>{{$post->slug}}</td>
-                                                <td>{{$post->category->translation->name}}</td>
-                                                <td>{{$post->user->fullname}}</td>
                                                 <td>
                                                     <label class="label
                                                             {{$post->status == \App\Models\V2\Posts\Post::PUBLISHED ? 'label-success' : 'label-danger'}}

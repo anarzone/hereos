@@ -25,9 +25,6 @@ Route::namespace('V2\Front')->group(function (){
 
 /// -- Version 2 Admin -- ///
 Route::namespace('V2\Admin')->prefix('manage')->group(function (){
-    // -- File upload -- //
-    Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
-    Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
 
     // -- Authorization -- //
     Route::namespace('Auth')->group(function (){
@@ -66,7 +63,7 @@ Route::namespace('V2\Admin')->prefix('manage')->group(function (){
     });
 });
 
-
-
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 

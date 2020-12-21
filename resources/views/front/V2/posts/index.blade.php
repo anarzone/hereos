@@ -27,7 +27,7 @@
                                                 <div class="large_post_content">
                                                     <h3 class="image-post-title">
                                                         <a href="{{route('posts.single', $latestPost->slug)}}">
-                                                            {{$latestPost->category->translation->name}}
+                                                            {{$latestPost->translation->title}}
                                                         </a>
                                                     </h3>
                                                 </div>
